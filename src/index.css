@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:600|Work+Sans:400,500,600,700&display=swap');
 
-body{
-  background: #3e4b52;
+body {
   font-family: "work sans";
-}
-
-html{
-  font-size: 100%;
+  font-size: small;
+  line-height: 1.6;
+  text-align: center;
+  margin: 0;
+  background-color: whitesmoke;
 }
