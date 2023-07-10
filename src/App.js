@@ -3,12 +3,19 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Main from "./Main";
 import Header from "./Header";
-import Product from "./Product";
+import Product from "./pages/Product";
 import NotFound from "./NotFound";
-
-import './App.css';
 import Footer from "./Footer";
-import LoginForm from "./LoginForm";
+import LoginForm from "./pages/LoginForm";
+import User from "./pages/User";
+import ProductList from "./pages/ProductList";
+import Memo from "./pages/Memo";
+import UserList from "./pages/UserList";
+import About from "./about/About";
+import BusinessSub from "./BusinessSub";
+
+import "./css/App.css";
+import "./css/styles.css";
 
 const App = () => {
 
@@ -38,7 +45,13 @@ const App = () => {
                     <Header />
                     <Routes>
                         <Route path="/" element={<Main />}></Route>
+                        <Route path="/productList" element={<ProductList/>}></Route>
                         <Route path="/product/:productId" element={<Product />}></Route>
+                        <Route path="/userList/" element={<UserList />}></Route>
+                        <Route path="/user/:userId" element={<User />}></Route>
+                        <Route path="/memo/:memoId" element={<Memo />}></Route>
+                        <Route path="/businessSub" element={<BusinessSub />}></Route>
+                        <Route path="/about" element={<About />}></Route>
                         {/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 경우 라우트가 없는 경우 처리 */}
                         <Route path="*" element={<NotFound />}></Route>
                     </Routes>

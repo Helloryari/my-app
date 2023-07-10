@@ -2,9 +2,9 @@ import React from "react";
 
 const NotFound = () => {
     return (
-        <div>
+        <main className="min">
             404 Error
-        </div>
+        </main>
     );
 };
 

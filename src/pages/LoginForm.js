@@ -1,11 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 
-import facebooklogo from "./assets/icon-facebook.png";
-import twitterlogo from "./assets/icon-twitter.png";
-import googlelogo from "./assets/icon-google.png";
-
-import "./styles.css";
+import facebooklogo from "../assets/icon-facebook.png";
+import twitterlogo from "../assets/icon-twitter.png";
+import googlelogo from "../assets/icon-google.png";
 
 const OtherMethods = props => (
     <div id="alternativeLogin">
@@ -58,9 +56,11 @@ function LoginForm () {
                     */
                     sessionStorage.setItem("sabun", sabun);
                     sessionStorage.setItem("loginStatus", true);
+                    sessionStorage.setItem("sabun", response.data.sabun);
                     sessionStorage.setItem("name", response.data.name);
                     sessionStorage.setItem("grade", response.data.grade);
                     sessionStorage.setItem("part", response.data.part);
+                    sessionStorage.setItem("photo_dir", response.data.photo_dir);
 
                     window.location.href = "/";
                 } else {
@@ -103,7 +103,7 @@ function LoginForm () {
                 <form onSubmit={handleSubmit}>
                     <h2 id="headerTitle">Login</h2>
                     {renderForm}
-                    <div id="button" class="row">
+                    <div id="button" className="row">
                         <button>Log in</button>
                     </div>
                 </form>
