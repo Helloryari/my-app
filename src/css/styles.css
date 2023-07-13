@@ -287,12 +287,12 @@ header li a:hover:after {
 
 .main .content {
     display: inline-block;
-    width: 79%;
+    width: 980px;
     /*border: 1px solid black;*/
 }
 
 .main .content .container {
-    width: 980px;
+    width: 100%;
     background-color: #cdcdce;
     padding: 0.5rem;
     border-radius: 0.5em;
