@@ -50,8 +50,8 @@ const ProductList = () => {
                         <span className="cell col7_7">조달</span>
                     </div>
                     { productList }
-                    <Sidebar />
                 </div>
+                <Sidebar />
             </div>
         </div>
     );
