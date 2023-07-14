@@ -14,8 +14,8 @@ function Header( props ) {
                         <li><Link to="#">지출결의</Link></li>
                         <li><Link to="#">게시판</Link></li>
                         <li><Link to="#">업무</Link></li>
-                        <li><Link to="/userList">업무지원</Link></li>
-                        <li><Link to="/businessSub">각종정보</Link></li>
+                        <li><Link to="/businessSub">업무지원</Link></li>
+                        <li><Link to="/userList">각종정보</Link></li>
                         <li><Link to="#">교육관리</Link></li>
                     </ul>
                 </nav>

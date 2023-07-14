@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
+import Sidebar from "../components/Sidebar";
 
 const ProductList = () => {
     const [data, setData] = useState([]);
@@ -35,21 +36,24 @@ const ProductList = () => {
     });
 
     return (
-        <main>
-            <h3 id="subjectText">Product</h3>
-            <div id="table">
-                <div className="row title">
-                    <span className="cell col1_7">번호</span>
-                    <span className="cell col2_7">품목명</span>
-                    <span className="cell col3_7">규격</span>
-                    <span className="cell col4_7">거래처</span>
-                    <span className="cell col5_7">품목군</span>
-                    <span className="cell col6_7">계정</span>
-                    <span className="cell col7_7">조달</span>
+        <div className="main">
+            <div className="content">
+                <h3 id="subjectText">Product</h3>
+                <div id="table">
+                    <div className="row title">
+                        <span className="cell col1_7">번호</span>
+                        <span className="cell col2_7">품목명</span>
+                        <span className="cell col3_7">규격</span>
+                        <span className="cell col4_7">거래처</span>
+                        <span className="cell col5_7">품목군</span>
+                        <span className="cell col6_7">계정</span>
+                        <span className="cell col7_7">조달</span>
+                    </div>
+                    { productList }
+                    <Sidebar />
                 </div>
-                { productList }
             </div>
-        </main>
+        </div>
     );
 };
 
