@@ -278,11 +278,37 @@ header li a:hover:after {
 .main:after { clear: both; display: block; content: ''; }
 
 .main .sidebar {
-    float: left;
-    width: 20%;
+    position: fixed;
     height: 100%;
+    top: 60px;
+    right: 80px;
+    width: 200px;
     /*background-color: #878788; */
-    border-right: 1px solid #020202;
+    border-left: 1px solid #b6b6b6;
+}
+
+.main .sidebar ul {
+    list-style-type: none;
+    font-size: 12px;
+    line-height: 0.5em;
+}
+
+.main .sidebar li a {
+    text-decoration: none;
+    display: block;
+    color: #000;
+    padding: 12px 15px 12px 15px;
+    font-weight: bold;
+}
+
+.main .sidebar li a.gubun {
+    background-color: tomato;
+    color: #fff;
+}
+
+.main .sidebar li a:hover:not(.gubun) {
+    background-color: #333;
+    color: #fff;
 }
 
 .main .content {
@@ -296,5 +322,11 @@ header li a:hover:after {
     background-color: #cdcdce;
     padding: 0.5rem;
     border-radius: 0.5em;
+    margin: 0 auto;
+}
+
+#wrap {
+    width: 100%;
+    height: 700px;
     margin: 0 auto;
 }
