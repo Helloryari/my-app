@@ -14,13 +14,17 @@ const Sidebar = () => {
 
     return (
         <div className="sidebar">
-            {menus.map( (menu, index) => {
-                return (
-                    <Link to={menu.path} key={index}>
-                        <SidebarItem menu={menu} />
-                    </Link>
-                );
-            })}
+            <ul>
+                <li><a className="gubun" href="#">기초자료</a></li>
+                {menus.map( (menu, index) => {
+                    return (
+                        <li><Link to={menu.path} key={index}>
+                            <SidebarItem menu={menu} />
+                        </Link>
+                        </li>
+                    );
+                })}
+            </ul>
         </div>
     );
 };

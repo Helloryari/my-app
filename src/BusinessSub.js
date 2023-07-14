@@ -6,10 +6,10 @@ const BusinessSub = () => {
     return(
         <div>
             <div className="main">
-                <Sidebar />
                 <div className="content">
                     <ProductList />
                 </div>
+                <Sidebar />
             </div>
         </div>
     );
