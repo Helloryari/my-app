@@ -17,6 +17,7 @@ import BusinessSub from "./BusinessSub";
 import "./css/App.css";
 import "./css/styles.css";
 
+// App
 const App = () => {
 
     const [ isLoggedIn, setIsLoggedIn ] = useState(false);
