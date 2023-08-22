@@ -17,7 +17,6 @@ import BusinessSub from "./BusinessSub";
 import "./css/App.css";
 import "./css/styles.css";
 
-// App
 const App = () => {
 
     const [ isLoggedIn, setIsLoggedIn ] = useState(false);
@@ -41,7 +40,7 @@ const App = () => {
 
     const renderMainPage = () => {
         return (
-            <div id="wrap">
+            <div>
                 <BrowserRouter>
                     <Header />
                     <Routes>

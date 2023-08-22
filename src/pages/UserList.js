@@ -37,20 +37,22 @@ const UserList = () => {
     });
 
     return (
-        <main>
-            <h3 id="subjectText">User List</h3>
-            <div id="table">
-                <div className="row title">
-                    <span className="cell col1_6">번호</span>
-                    <span className="cell col2_6">부서</span>
-                    <span className="cell col3_6">이름</span>
-                    <span className="cell col4_6">직급</span>
-                    <span className="cell col5_6">휴대전화</span>
-                    <span className="cell col6_6">내선</span>
+        <div className="main">
+            <div className="content">
+                <h3 id="subjectText">User List</h3>
+                <div id="table">
+                    <div className="row title">
+                        <span className="cell col1_6">번호</span>
+                        <span className="cell col2_6">부서</span>
+                        <span className="cell col3_6">이름</span>
+                        <span className="cell col4_6">직급</span>
+                        <span className="cell col5_6">휴대전화</span>
+                        <span className="cell col6_6">내선</span>
+                    </div>
+                    {userList}
                 </div>
-                {userList}
             </div>
-        </main>
+        </div>
     );
 };
 
