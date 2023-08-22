@@ -1,40 +1,63 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 
-function Pagination ( {total,limit,page,plimit,setPage} ) {
+function Pagination ( { currentPage,maxVisiblePages,totalPages,onPageChange } ) {
 
-    const [pPage, setPPage] = useState(); 
-    const numPages = Math.ceil(total/limit);
-    const numPpages = Math.ceil(numPages/plimit);
-    const pOffset = (pPage-1) * plimit;
+    // Calculate the page numbers for pagination
+    const getPageNumbers = () => {
+        const pageNumbers = [];
+        const tempPageValue = Math.floor((currentPage-1) / maxVisiblePages);
+
+        let startPage = 1 + (maxVisiblePages * tempPageValue);
+        if (startPage < 1) startPage = 1;
+
+        let endPage = startPage + maxVisiblePages - 1;
+        if (endPage > totalPages) endPage = totalPages;
+
+        if (endPage - startPage < maxVisiblePages - 1) {
+            startPage = endPage - maxVisiblePages + 1;
+            if (startPage < 1) startPage = 1;
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+            pageNumbers.push(i);
+        }
+
+        return pageNumbers;
+    }
+
+    const pageNumbers = getPageNumbers();
+
+    const getPageOfPages = () => {
+        let pageOfPages = Math.ceil(currentPage / maxVisiblePages);
+        return pageOfPages;
+    }
 
     return(
-        <>
         <Nav>
-            <Button onClick={()=>setPPage(1)} disabled={pPage===1}>
+            <Button disabled={getPageOfPages() === 1} onClick={() => onPageChange(1)}>
                 처음
             </Button>
-            <Button onClick={()=>setPPage(pPage-1)} disabled={pPage===1}>
+            <Button disabled={getPageOfPages() === 1} onClick={() => onPageChange(pageNumbers[0] - maxVisiblePages)}>
                 &lt;
             </Button>
-            {Array(numPages).fill().map((_,i)=>(
-                <Button
-                    key={i+1}
-                    onClick={()=>setPage(i+1)}
-                    aria-current={page===(i+1)?"page":null}
+            {pageNumbers.map((page) => (
+                <Button 
+                    key={page} 
+                    onClick={() => onPageChange(page)} 
+                    aria-current={currentPage === page ? "page" : null}
                 >
-                    {i+1}
+                    {page}
                 </Button>
             ))}
-            <Button onClick={()=>setPPage(pPage+1)} disabled={pPage===numPpages}>
+            <Button disabled={getPageOfPages() === Math.ceil(totalPages / maxVisiblePages)} onClick={() => onPageChange(pageNumbers[0] + maxVisiblePages)}>
                 &gt;
             </Button>
-            <Button onClick={()=>setPPage(numPpages)} disabled={pPage===numPpages}>
+            <Button disabled={getPageOfPages() === Math.ceil(totalPages / maxVisiblePages)} onClick={() => onPageChange(totalPages)}>
                 끝
             </Button>
-        </Nav>
-        </>
+       </Nav>
     );
 }
 

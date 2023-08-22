@@ -40,7 +40,7 @@ const App = () => {
 
     const renderMainPage = () => {
         return (
-            <div id="wrap">
+            <div>
                 <BrowserRouter>
                     <Header />
                     <Routes>

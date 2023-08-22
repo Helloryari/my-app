@@ -4,13 +4,9 @@ import ProductList from "./pages/ProductList";
 
 const BusinessSub = () => {
     return(
-        <div>
-            <div className="main">
-                <div className="content">
-                    <ProductList />
-                </div>
-                <Sidebar />
-            </div>
+        <div className="main">
+            <Sidebar />
+            <ProductList />
         </div>
     );
 };
