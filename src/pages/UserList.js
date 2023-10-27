@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import Pagination from "../components/Pagination";
+
 const UserList = () => {
     const [data, setData] = useState([]);
 
@@ -51,6 +53,8 @@ const UserList = () => {
                     </div>
                     {userList}
                 </div>
+                <div>
+            </div>
             </div>
         </div>
     );

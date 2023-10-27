@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 
-function Pagination ( { currentPage,maxVisiblePages,totalPages,onPageChange } ) {
+const Pagination = ( { currentPage,maxVisiblePages,totalPages,onPageChange } ) => {
 
     // Calculate the page numbers for pagination
     const getPageNumbers = () => {

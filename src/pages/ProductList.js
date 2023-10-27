@@ -1,8 +1,9 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import axios from "axios";
 import Pagination from "../components/Pagination";
+
 
 const ProductList = () => {
     const [data, setData] = useState([]);
@@ -41,14 +42,13 @@ const ProductList = () => {
 
     const totalPages = Math.ceil( data.length/limit );
 
-    const handlePageChange = (page) => {
-            setCurrentPage(page);
+    const handlePageChange = (newPage) => {
+        setCurrentPage(newPage);
     }
 
     return (
         <div className="biz_content">
             <h3 id="subjectText">Product</h3>
-            
             <label>
                 페이지당 표시할 게시물 수 : &nbsp;
                 <select
@@ -61,6 +61,7 @@ const ProductList = () => {
                     <option value="100">100</option>
                 </select>
             </label>
+            
             <div id="table">
                 <div className="row title">
                     <span className="cell col1_7">번호</span>
