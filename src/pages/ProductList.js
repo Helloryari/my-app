@@ -74,14 +74,12 @@ const ProductList = () => {
                 </div>
                 { lists }
             </div>
-            <div>
-                <Pagination
-                    currentPage={currentPage}
-                    maxVisiblePages={maxVisiblePages} 
-                    totalPages={totalPages}
-                    onPageChange={handlePageChange}
-                />
-            </div>
+            <Pagination
+                currentPage={currentPage}
+                maxVisiblePages={maxVisiblePages} 
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+            />
         </div>
     );
 };

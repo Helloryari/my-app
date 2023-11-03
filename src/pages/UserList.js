@@ -6,6 +6,10 @@ import Pagination from "../components/Pagination";
 
 const UserList = () => {
     const [data, setData] = useState([]);
+    const [limit, setLimit] = useState(40);
+    const [currentPage, setCurrentPage] = useState(1);
+    const offset = (currentPage-1) * limit;
+    const maxVisiblePages = 5;
 
     useEffect( () => {
         fetchData();
@@ -24,7 +28,7 @@ const UserList = () => {
 
     let uri = "";
 
-    const userList = data.map( ( user ) => {
+    const userList = data.slice( offset, offset+limit ).map( ( user ) => {
         uri = `/user/${user.sabun}`;
         return(
             <div className="row" key={user.sabun}>
@@ -38,10 +42,29 @@ const UserList = () => {
         );
     });
 
+    const totalPages = Math.ceil( data.length/limit );
+
+    const handlePageChange = (newPage) => {
+        setCurrentPage(newPage);
+    }
+
     return (
         <div className="main">
             <div className="content">
                 <h3 id="subjectText">User List</h3>
+                <label>
+                    페이지당 표시할 게시물 수 : &nbsp;
+                    <select
+                        type="number"
+                        value={limit}
+                        onChange={({ target: { value }}) => setLimit(Number(value))}
+                    >
+                        <option value="20">20</option>
+                        <option value="40">40</option>
+                        <option value="100">100</option>
+                    </select>
+                </label>
+            
                 <div id="table">
                     <div className="row title">
                         <span className="cell col1_6">번호</span>
@@ -53,6 +76,12 @@ const UserList = () => {
                     </div>
                     {userList}
                 </div>
+                <Pagination
+                    currentPage={currentPage}
+                    maxVisiblePages={maxVisiblePages} 
+                    totalPages={totalPages}
+                    onPageChange={handlePageChange}
+                />
                 <div>
             </div>
             </div>
