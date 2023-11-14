@@ -10,7 +10,7 @@ const Main = ( props ) => {
                 <div className="container">
                     <UserInfo />
                 </div>
-                
+                <NormalText />
             </div>
         </div>
    );

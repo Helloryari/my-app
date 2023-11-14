@@ -39,8 +39,8 @@ function LoginForm () {
 
         try {
                 const response = await axios.post("http://dev.jinyuone.com/api/login.php", {
-                    sabun: sabun,
-                    password: password,
+                    sabun,
+                    password
                 }, 
                 {
                     headers: {
@@ -64,7 +64,7 @@ function LoginForm () {
 
                     window.location.href = "/";
                 } else {
-                    console.log(response.data.message);
+                    console.log(response.data);
                     //console.log(response.data.sabun);
                     setError(response.data.message);
                 }

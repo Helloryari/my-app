@@ -50,7 +50,7 @@ const UserList = () => {
 
     return (
             <>
-                <h3 id="subjectText">임직원정보</h3>
+                <h3 id="subjectText">사원정보</h3>
                 <label>
                     페이지당 표시할 게시물 수 : &nbsp;
                     <select
