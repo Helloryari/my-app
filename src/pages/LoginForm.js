@@ -98,7 +98,7 @@ function LoginForm () {
     );
 
     return (
-        <div>
+        <div id='login_bg'>
             <div id="loginform">
                 <form onSubmit={handleSubmit}>
                     <h2 id="headerTitle">Login</h2>

@@ -6,7 +6,7 @@ const Sidebar = ({ data }) => {
 
     const generateCategoryMenu = (categoryData) => {
         return (
-            <div>
+            <>
                 <ul>
                     <li><a className="gubun">{categoryData.title}</a></li>
                     {categoryData.items.map( (menu, index) => (
@@ -17,7 +17,7 @@ const Sidebar = ({ data }) => {
                         </li>
                     ))}
                 </ul>
-            </div>
+            </>
         );
     };
 

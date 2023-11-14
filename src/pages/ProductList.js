@@ -47,8 +47,8 @@ const ProductList = () => {
     }
 
     return (
-        <div className="biz_content">
-            <h3 id="subjectText">Product</h3>
+        <>
+            <h3 id="subjectText">품목정보</h3>
             <label>
                 페이지당 표시할 게시물 수 : &nbsp;
                 <select
@@ -80,7 +80,7 @@ const ProductList = () => {
                 totalPages={totalPages}
                 onPageChange={handlePageChange}
             />
-        </div>
+        </>
     );
 };
 

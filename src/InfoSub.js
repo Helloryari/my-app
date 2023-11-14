@@ -35,9 +35,11 @@ const menuData = [
 
 const BusinessSub = () => {
     return(
-        <div className="main">
+        <div className='main'>
             <Sidebar data={menuData} />
-            <UserList />
+            <div className='content'>
+                <UserList />
+            </div>
         </div>
     );
 };

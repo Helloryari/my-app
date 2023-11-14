@@ -6,7 +6,7 @@ import Pagination from "../components/Pagination";
 
 const UserList = () => {
     const [data, setData] = useState([]);
-    const [limit, setLimit] = useState(40);
+    const [limit, setLimit] = useState(20);
     const [currentPage, setCurrentPage] = useState(1);
     const offset = (currentPage-1) * limit;
     const maxVisiblePages = 5;
@@ -49,9 +49,8 @@ const UserList = () => {
     }
 
     return (
-        <div className="main">
-            <div className="content">
-                <h3 id="subjectText">User List</h3>
+            <>
+                <h3 id="subjectText">임직원정보</h3>
                 <label>
                     페이지당 표시할 게시물 수 : &nbsp;
                     <select
@@ -82,10 +81,7 @@ const UserList = () => {
                     totalPages={totalPages}
                     onPageChange={handlePageChange}
                 />
-                <div>
-            </div>
-            </div>
-        </div>
+            </>
     );
 };
 

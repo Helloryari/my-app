@@ -41,32 +41,34 @@ const App = () => {
 
     const renderMainPage = () => {
         return (
-            <div>
+            <>
                 <BrowserRouter>
                     <Header />
-                    <Routes>
-                        <Route path="/" element={<Main />}></Route>
-                        <Route path="/productList" element={<ProductList/>}></Route>
-                        <Route path="/product/:productId" element={<Product />}></Route>
-                        <Route path="/userList/" element={<UserList />}></Route>
-                        <Route path="/user/:userId" element={<User />}></Route>
-                        <Route path="/memo/:memoId" element={<Memo />}></Route>
-                        <Route path="/businessSub" element={<BusinessSub />}></Route>
-                        <Route path="/infoSub" element={<InfoSub />}></Route>
-                        <Route path="/about" element={<About />}></Route>
-                        {/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 경우 라우트가 없는 경우 처리 */}
-                        <Route path="*" element={<NotFound />}></Route>
-                    </Routes>
+                    <div id='wrap'>
+                        <Routes>
+                            <Route path="/" element={<Main />}></Route>
+                            <Route path="/productList" element={<ProductList/>}></Route>
+                            <Route path="/product/:productId" element={<Product />}></Route>
+                            <Route path="/userList/" element={<UserList />}></Route>
+                            <Route path="/user/:userId" element={<User />}></Route>
+                            <Route path="/memo/:memoId" element={<Memo />}></Route>
+                            <Route path="/businessSub" element={<BusinessSub />}></Route>
+                            <Route path="/infoSub" element={<InfoSub />}></Route>
+                            <Route path="/about" element={<About />}></Route>
+                            {/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 경우 라우트가 없는 경우 처리 */}
+                            <Route path="*" element={<NotFound />}></Route>
+                        </Routes>
+                    </div>
                     <Footer />
                 </BrowserRouter>
-            </div>
+            </>
         );
     };
 
     return (
-        <div>
+        <>
             { isLoggedIn ? renderMainPage() : <LoginForm /> }
-        </div>
+        </>
     );
 };
 
