@@ -14,7 +14,9 @@ function Header( props ) {
     return (
         <>
             <header>
-                <Link to="/"><img src={jinyulogo} width="180" height="40" alt="logo" /></Link>
+            <a href="/" onClick={() => window.location.reload(true)}>
+                <img src={jinyulogo} width="180" height="40" alt="logo" />
+            </a>
                 <nav>
                     <ul>
                     <li><Link to="#" onClick={() => handleMenuClick("전자결재")} className={selectedMenu === "전자결재" ? "selected" : ""}>전자결재</Link></li>
