@@ -37,7 +37,7 @@ const BusinessSub = () => {
     return(
         <div className='main'>
             <Sidebar data={menuData} />
-            <div className='content'>
+            <div className='right_content'>
                 <UserList />
             </div>
         </div>

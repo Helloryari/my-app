@@ -231,6 +231,11 @@ header a {
     text-decoration: none;
 }
 
+header li a.selected {
+    color: #6bfa0b; /* 선택된 메뉴 텍스트 색상 */
+    border-bottom: solid 2px #6bfa0b; /* 선택된 메뉴 하단 테두리 */
+}
+
 header li a:after {
     display: block;
     width: 70px;
@@ -321,25 +326,21 @@ select:disabled {
     width: 100%;
     padding-top: 5px;
     padding-bottom: 5px;
-    /*border: 3px solid black;*/
+    /*border: 1px solid black;*/
     margin: 0 auto;
     display: flex;
     margin-top: 60px;
 }
 
 #wrap .main .sidebar {
-    /*flex: 1;*/
-    /*min-height: 100%;*/
-    /*background-color: #878788; */
-    /*border: 1px solid black;*/
-
+    position: fixed;
+    width: 200px;
 }
 
 #wrap .main .sidebar ul {
     list-style-type: none;
     font-size: 12px;
     line-height: 0.5em;
-    width: 200px;
 }
 
 #wrap .main .sidebar li a {
@@ -352,24 +353,29 @@ select:disabled {
 
 #wrap .main .sidebar li a.gubun {
     padding: 12px 10px 12px 10px;
-    background-color: #ff7857;
-    color: #fff;
+    background-color: #fff;
+    color: #777;
+    font-family: "돋움";
+    font:caption;
+    font-weight: normal;
 }
 
 #wrap .main .sidebar li a:hover:not(.gubun) {
     border-right: 3px solid #b6b6b6;
 }
 
-#wrap .main .content {
+#wrap .main .right_content {
     width: 100%;
+    margin-left: 200px;
 }
 
 #wrap .main .content .container {
     width: 70%;
-    background-color: #cdcdce;
+    background-color: #eee;
     padding: 0.5rem;
     border-radius: 0.5em;
     margin: 0 auto;
+    border: 1px solid #a7a7a7;
 }
 
 #wrap {
