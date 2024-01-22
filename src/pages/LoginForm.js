@@ -35,7 +35,7 @@ function LoginForm () {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log("axios start %s %s", sabun, password);
+        //console.log("axios start %s %s", sabun, password);
 
         try {
                 const response = await axios.post("http://dev.jinyuone.com/api/login.php", {
