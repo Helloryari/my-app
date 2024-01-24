@@ -42,9 +42,9 @@ function LoginForm () {
             password
         };
 
-        console.log(postData);
+        //console.log(postData);
 
-        const apiUrl = "http://dev.jinyuone.com/api/login.php";
+        const apiUrl = "http://dev.jinyuone.com/api/login_new.php";
 
         try {
             //axios를 사용하여 데이터를 서버로 전송
@@ -66,8 +66,10 @@ function LoginForm () {
             //     credentials: 'omit', // or 'include' based on your requirements or 'omit' or 'same-origin'
             // });
 
+
+            console.log(response);
+
             if (response.data.success) {
-                console.log(response.data);
                 /* 로그인 성공시 이동하는 페이지
                 window.location.href = '/initpage';
                 */
@@ -79,7 +81,7 @@ function LoginForm () {
                 sessionStorage.setItem("part", response.data.part);
                 sessionStorage.setItem("photo_dir", response.data.photo_dir);
 
-                window.location.href = "/";
+                //window.location.href = "/";
             } else {
                 console.log(response.data);
                 //console.log(response.data.sabun);
