@@ -44,7 +44,7 @@ function LoginForm () {
 
         //console.log(postData);
 
-        const apiUrl = "http://dev.jinyuone.com/api/login_new.php";
+        const apiUrl = "http://dev.jinyuone.com/api/login.php";
 
         try {
             //axios를 사용하여 데이터를 서버로 전송
@@ -81,7 +81,7 @@ function LoginForm () {
                 sessionStorage.setItem("part", response.data.part);
                 sessionStorage.setItem("photo_dir", response.data.photo_dir);
 
-                //window.location.href = "/";
+                window.location.href = "/";
             } else {
                 console.log(response.data);
                 //console.log(response.data.sabun);
