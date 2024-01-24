@@ -36,38 +36,59 @@ function LoginForm () {
     const handleSubmit = async (event) => {
         event.preventDefault();
         //console.log("axios start %s %s", sabun, password);
+        
+        const postData =  {
+            sabun,
+            password
+        };
+
+        console.log(postData);
+
+        const apiUrl = "http://dev.jinyuone.com/api/login.php";
 
         try {
-                const response = await axios.post("http://dev.jinyuone.com/api/login.php", {
-                    sabun,
-                    password
-                }, 
-                {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    },
-                    withCredentials: false
-                });
+            //axios를 사용하여 데이터를 서버로 전송
+            const response = await axios.post(apiUrl, postData, {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                    //'Content-Type': 'application/json'
+                },
+                withCredentials: false, // withCredentials 설정
+            });
 
-                if (response.data.success) {
-                    console.log(response.data);
-                    /* 로그인 성공시 이동하는 페이지
-                    window.location.href = '/initpage';
-                    */
-                    sessionStorage.setItem("sabun", sabun);
-                    sessionStorage.setItem("loginStatus", true);
-                    sessionStorage.setItem("sabun", response.data.sabun);
-                    sessionStorage.setItem("name", response.data.name);
-                    sessionStorage.setItem("grade", response.data.grade);
-                    sessionStorage.setItem("part", response.data.part);
-                    sessionStorage.setItem("photo_dir", response.data.photo_dir);
+            // // fetch를 사용하여 데이터 전송
+            // const response = await fetch(apiUrl, {
+            //     method: 'POST',
+            //     headers: {
+            //       'Content-Type': 'application/x-www-form-urlencoded', // Set the content type to 'application/x-www-form-urlencoded'
+            //     },
+            //     body: postData, // Use the formatted data as the request body
+            //     credentials: 'omit', // or 'include' based on your requirements or 'omit' or 'same-origin'
+            // });
 
-                    window.location.href = "/";
-                } else {
-                    console.log(response.data);
-                    //console.log(response.data.sabun);
-                    setError(response.data.message);
-                }
+            if (response.data.success) {
+                console.log(response.data);
+                /* 로그인 성공시 이동하는 페이지
+                window.location.href = '/initpage';
+                */
+                sessionStorage.setItem("sabun", sabun);
+                sessionStorage.setItem("loginStatus", true);
+                sessionStorage.setItem("sabun", response.data.sabun);
+                sessionStorage.setItem("name", response.data.name);
+                sessionStorage.setItem("grade", response.data.grade);
+                sessionStorage.setItem("part", response.data.part);
+                sessionStorage.setItem("photo_dir", response.data.photo_dir);
+
+                window.location.href = "/";
+            } else {
+                console.log(response.data);
+                //console.log(response.data.sabun);
+                setError(response.data.message);
+            }
+
+            // const responseData = await response.json();
+            // console.log("responseData : ", responseData);
+
         } catch (error) {
             console.log(error);
             setError(error.message);

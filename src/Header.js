@@ -11,6 +11,22 @@ function Header( props ) {
         setSelectedMenu(menu);
     };
 
+    const logout = () => {
+        // 세션 스토리지에서 필요한 세션 정보 삭제
+        sessionStorage.removeItem("sabun");
+        sessionStorage.removeItem("loginStatus");
+        sessionStorage.removeItem("name");
+        sessionStorage.removeItem("grade");
+        sessionStorage.removeItem("part");
+        sessionStorage.removeItem("photo_dir");
+      
+        // 다른 로그아웃 관련 작업을 수행할 수 있습니다.
+      
+        // 로그아웃 후 리다이렉트 등의 작업을 수행할 수 있습니다.
+        // 예를 들면, 홈페이지로 리다이렉트하는 경우:
+        window.location.href = "/";
+    };
+
     return (
         <div id='header'>
             <a href="/" onClick={() => window.location.reload(true)}>
@@ -29,7 +45,7 @@ function Header( props ) {
             </nav>
             <nav>
                 <ul>
-                    <li>세션</li>
+                    <li><Link to="#" onClick={logout}>세션아웃</Link></li>
                     <li>로그인정보</li>
                 </ul>
             </nav>
